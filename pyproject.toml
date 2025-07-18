@@ -1,0 +1,30 @@
+[project]
+name = "coeiroink-core"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11.13"
+dependencies = [
+    "espnet",
+    "pydantic>=2.11.7",
+    "torch==2.6.0",
+    "torchaudio==2.6.0",
+]
+authors = [
+    { "name" = "shirowanisan" },
+    { "name" = "hydriod" }
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu" },
+]
+torchvision = [
+    { index = "pytorch-cpu" },
+]
+espnet = { git = "https://github.com/espnet/espnet", rev = "bf02dd8c365547165c68e9b5067537086871c8e3" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
