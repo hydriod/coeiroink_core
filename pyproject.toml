@@ -19,7 +19,7 @@ authors = [
 torch = [
     { index = "pytorch-cpu" },
 ]
-torchvision = [
+torchaudio = [
     { index = "pytorch-cpu" },
 ]
 espnet = { git = "https://github.com/espnet/espnet", rev = "bf02dd8c365547165c68e9b5067537086871c8e3" }
@@ -28,3 +28,9 @@ espnet = { git = "https://github.com/espnet/espnet", rev = "bf02dd8c365547165c68
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
+
+[dependency-groups]
+dev = [
+    "pip-licenses>=5.0.0",
+    "pytest>=8.4.1",
+]

@@ -8,8 +8,6 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     install_requires=[
-        "torch==2.6.0",        
-        "torchaudio==2.6.0",
         "espnet @ git+https://git@github.com/espnet/espnet@bf02dd8c365547165c68e9b5067537086871c8e3",
         "pydantic>=2.11.7",
     ]
