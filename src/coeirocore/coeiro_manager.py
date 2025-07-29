@@ -42,15 +42,19 @@ class MetaManager:
             styles = []
             for style in meta['styles']:
                 style_id = style['styleId']
-                styles.append({'name': style['styleName'], 'id': style_id})
 
                 if style_id in self.id_model_map.keys():
                     logging.warning("Style ids are duplicated")
                 model_folder_path = f"{speaker_path}model/{style_id}/"
-                self.id_model_map[style_id] = ModelPath(
-                    model_path=Path(sorted(glob.glob(model_folder_path + '*.pth'))[0]),
-                    config_path=Path(model_folder_path + 'config.yaml')
-                )
+                model_path_list = sorted(glob.glob(model_folder_path + '*.pth'))
+                if model_path_list.__len__() != 0:
+                    self.id_model_map[style_id] = ModelPath(
+                        model_path=Path(model_path_list[0]),
+                        config_path=Path(model_folder_path + 'config.yaml')
+                    )
+                    styles.append({'name': style['styleName'], 'id': style_id})
+                else:
+                    logging.warning(f"Model of style id '{style_id}' was not found.")
 
             version = meta['version'] if 'version' in meta.keys() else '0.0.1'
             speaker_info = {

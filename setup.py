@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='coeirocore',
-    version='3.11.1',
+    version='3.11.2',
     url="https://github.com/hydriod/coeiroink_core",
     author="shirowanisan (original), hydriod (modifications)",
     packages=find_packages('src'),
